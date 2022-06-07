@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>para1</param-name>
+        <param-value>Married</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>ACircleController</servlet-name>
+        <servlet-class>Controller.ACircleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CircleController</servlet-name>
+        <servlet-class>Controller.CircleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewServlet01</servlet-name>
+        <servlet-class>Controller.NewServlet01</servlet-class>
+        <init-param>
+            <param-name>para</param-name>
+            <param-value>single para</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>NewServlet02</servlet-name>
+        <servlet-class>Controller.NewServlet02</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ACircleController</servlet-name>
+        <url-pattern>/a</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CircleController</servlet-name>
+        <url-pattern>/CircleController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet01</servlet-name>
+        <url-pattern>/NewServlet01</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet02</servlet-name>
+        <url-pattern>/NewServlet02</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
