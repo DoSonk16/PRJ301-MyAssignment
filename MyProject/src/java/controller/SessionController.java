@@ -5,12 +5,16 @@
 
 package controller;
 
+import dal.SessionDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.Date;
+import java.util.ArrayList;
+import model.Session;
 
 /**
  *
@@ -27,19 +31,25 @@ public class SessionController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SessionController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SessionController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        String raw_sid = request.getParameter("sid");
+        String raw_lid = request.getParameter("lid");
+        String raw_suid = request.getParameter("suid");
+        String raw_from = request.getParameter("from");
+        String raw_to = request.getParameter("to");
+        String raw_rname = request.getParameter("rname");
+        
+        
+        String sid = (raw_sid!=null && raw_sid.length()>0)?raw_sid:null;
+        Integer lid = (raw_lid !=null && raw_lid.length()>0)?new Integer(raw_lid):null;
+        String suid = (raw_suid!=null && raw_suid.length()>0)?raw_suid:null;
+        Date from = (raw_from !=null && raw_from.length()>0)?Date.valueOf(raw_from):null;
+        Date to = (raw_to !=null && raw_to.length()>0)?Date.valueOf(raw_to):null;
+        String rname = (raw_rname!=null && raw_rname.length()>0)?raw_rname:null;
+        
+        SessionDBContext se = new SessionDBContext();
+        ArrayList<Session> sess = se.search(sid, lid, suid, from, to, rname);
+        request.setAttribute("sess", sess);
+        request.getRequestDispatcher("../view/sessionView/sessionView.jsp").forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -13,7 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Lecturer;
 import model.Session;
+import model.Student;
+import model.Subject;
 
 /**
  *
@@ -46,10 +49,10 @@ public class SessionDBContext extends DBContext<Session> {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public ArrayList<Session> filter(Integer id, String name, Boolean gender, Date from, Date to, Integer did) {
+    public ArrayList<Session> search(String sid, Integer lid, String suid, Date from, Date to, String rname) {
 
         HashMap<Integer, Object> params = new HashMap<>();
-        ArrayList<Session> ses = new ArrayList<>();
+        ArrayList<Session> sess = new ArrayList<>();
         try {
             String sql = "SELECT s.sid,s.sname,l.lname,su.suid,su.suname,sl.sldate,r.rname FROM Session ses\n"
                     + "  INNER JOIN Student s ON s.sid = ses.sid\n"
@@ -59,35 +62,35 @@ public class SessionDBContext extends DBContext<Session> {
                     + "  INNER JOIN Room r ON r.rname = ses.rname\n"
                     + "  WHERE (1=1)";
             Integer index = 0;
-            if (id != null) {
-                sql += " AND e.eid = ?";
+            if (sid != null) {
+                sql += " AND s.sid like '%'+?+'%'";
                 index++;
-                params.put(index, id);
+                params.put(index, sid);
             }
-            if (name != null) {
-                sql += " AND e.ename like '%'+?+'%'";
+            if (lid != null) {
+                sql += " AND l.lid = ?";
                 index++;
-                params.put(index, name);
+                params.put(index, lid);
             }
-            if (gender != null) {
-                sql += " AND e.gender = ?";
+            if (suid != null) {
+                sql += " AND su.suid like '%'+?+'%'";
                 index++;
-                params.put(index, gender);
+                params.put(index, suid);
             }
             if (from != null) {
-                sql += " AND e.dob >= ?";
+                sql += " AND sl.sldate >= ?";
                 index++;
                 params.put(index, from);
             }
             if (to != null) {
-                sql += " AND e.dob <= ?";
+                sql += " AND sl.sldate <= ?";
                 index++;
                 params.put(index, to);
             }
-            if (did != null) {
-                sql += " AND e.did = ?";
+            if (rname != null) {
+                sql += " AND r.rname like '%'+?+'%'";
                 index++;
-                params.put(index, did);
+                params.put(index, rname);
             }
             PreparedStatement stm = connection.prepareStatement(sql);
             for (Map.Entry<Integer, Object> entry : params.entrySet()) {
@@ -98,6 +101,19 @@ public class SessionDBContext extends DBContext<Session> {
 
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
+                Session ses = new Session();
+                ses.setSid(rs.getString("sid"));
+                ses.setLid(rs.getInt("lid"));
+                ses.setSuid(rs.getString("suid"));
+                ses.setSldate(rs.getDate("sldate"));
+                ses.setRname(rs.getString("rname"));
+                Student stu = new Student();
+                stu.setSname(rs.getString("sname"));
+                Lecturer lec = new Lecturer();
+                lec.setLname(rs.getString("lname"));
+                Subject sub = new Subject();
+                sub.setSuname(rs.getString("suname"));
+                sess.add(ses);
 //                Emp e = new Emp();
 //                e.setEid(rs.getInt("eid"));
 //                e.setEname(rs.getString("ename"));
@@ -112,6 +128,6 @@ public class SessionDBContext extends DBContext<Session> {
         } catch (SQLException ex) {
             Logger.getLogger(SessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return ses;
+        return sess;
     }
 }
