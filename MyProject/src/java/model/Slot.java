@@ -4,10 +4,21 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author DELL
  */
 public class Slot {
+    Date sldate;
+
+    public Date getSldate() {
+        return sldate;
+    }
+
+    public void setSldate(Date sldate) {
+        this.sldate = sldate;
+    }
     
 }
