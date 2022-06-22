@@ -49,7 +49,7 @@ public class SessionDBContext extends DBContext<Session> {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public ArrayList<Session> search(String sid, Integer lid, String suid, Date from, Date to, String rname) {
+    public ArrayList<Session> search(String sid, Integer lid, String suid, String rname) {
 
         HashMap<Integer, Object> params = new HashMap<>();
         ArrayList<Session> sess = new ArrayList<>();
@@ -77,16 +77,6 @@ public class SessionDBContext extends DBContext<Session> {
                 index++;
                 params.put(index, suid);
             }
-            if (from != null) {
-                sql += " AND sl.sldate >= ?";
-                index++;
-                params.put(index, from);
-            }
-            if (to != null) {
-                sql += " AND sl.sldate <= ?";
-                index++;
-                params.put(index, to);
-            }
             if (rname != null) {
                 sql += " AND r.rname like '%'+?+'%'";
                 index++;
@@ -108,10 +98,13 @@ public class SessionDBContext extends DBContext<Session> {
                 ses.setSldate(rs.getDate("sldate"));
                 ses.setRname(rs.getString("rname"));
                 Student stu = new Student();
+                stu.setSid(rs.getString("sid"));
                 stu.setSname(rs.getString("sname"));
                 Lecturer lec = new Lecturer();
+                lec.setLid(rs.getInt("lid"));
                 lec.setLname(rs.getString("lname"));
                 Subject sub = new Subject();
+                sub.setSuid(rs.getString("suid"));
                 sub.setSuname(rs.getString("suname"));
                 sess.add(ses);
 //                Emp e = new Emp();

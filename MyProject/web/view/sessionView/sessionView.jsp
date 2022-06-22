@@ -13,15 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="attendance" method="GET">
-            Student Id: <input type="text" name="sid"/> <Br/>
-            Lecturer Id: <input type="text" name="lid"/> <Br/>
-            Subject Id: <input type="text" name="suid"/> <Br/>
-            Dob From: <input type="date" name="from"/> 
-            Dob To: <input type="date" name="from"/> <Br/>
-            Room:<input type="text" name="rname"/> <Br/> 
-            <input type="submit" value="Search"/>
-        </form>
+        
         <table>
             <tr>
                 <td>Student Id</td>
