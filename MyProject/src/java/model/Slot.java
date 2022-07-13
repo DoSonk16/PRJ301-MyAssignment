@@ -11,14 +11,41 @@ import java.sql.Date;
  * @author DELL
  */
 public class Slot {
-    Date sldate;
+    int slid;
+    String slname;
+    Date fromdate;
+    Date todate;
 
-    public Date getSldate() {
-        return sldate;
+    public int getSlid() {
+        return slid;
     }
 
-    public void setSldate(Date sldate) {
-        this.sldate = sldate;
+    public void setSlid(int slid) {
+        this.slid = slid;
+    }
+
+    public String getSlname() {
+        return slname;
+    }
+
+    public void setSlname(String slname) {
+        this.slname = slname;
+    }
+
+    public Date getFromdate() {
+        return fromdate;
+    }
+
+    public void setFromdate(Date fromdate) {
+        this.fromdate = fromdate;
+    }
+
+    public Date getTodate() {
+        return todate;
+    }
+
+    public void setTodate(Date todate) {
+        this.todate = todate;
     }
     
 }

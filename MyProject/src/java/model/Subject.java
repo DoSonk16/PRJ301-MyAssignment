@@ -11,7 +11,16 @@ package model;
 public class Subject {
     String suid;
     String suname;
+    L_Department lDept;
 
+    public L_Department getlDept() {
+        return lDept;
+    }
+
+    public void setlDept(L_Department lDept) {
+        this.lDept = lDept;
+    }
+    
     public String getSuid() {
         return suid;
     }

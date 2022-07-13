@@ -10,6 +10,15 @@ package model;
  */
 public class Room {
     String rname;
+    int rid;
+
+    public int getRid() {
+        return rid;
+    }
+
+    public void setRid(int rid) {
+        this.rid = rid;
+    }
 
     public String getRname() {
         return rname;

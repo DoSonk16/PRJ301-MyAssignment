@@ -15,6 +15,24 @@ public class Student {
     String sname;
     Boolean gender;
     Date dob;
+    String semail;
+    String spassword;
+
+    public String getSemail() {
+        return semail;
+    }
+
+    public void setSemail(String semail) {
+        this.semail = semail;
+    }
+
+    public String getSpassword() {
+        return spassword;
+    }
+
+    public void setSpassword(String spassword) {
+        this.spassword = spassword;
+    }
 
     public String getSid() {
         return sid;

@@ -11,6 +11,33 @@ package model;
 public class Lecturer {
     int lid;
     String lname;
+    boolean gender;
+    String lemail;
+    String lpassword;
+
+    public boolean isGender() {
+        return gender;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
+    }
+
+    public String getLemail() {
+        return lemail;
+    }
+
+    public void setLemail(String lemail) {
+        this.lemail = lemail;
+    }
+
+    public String getLpassword() {
+        return lpassword;
+    }
+
+    public void setLpassword(String lpassword) {
+        this.lpassword = lpassword;
+    }
 
     public int getLid() {
         return lid;
