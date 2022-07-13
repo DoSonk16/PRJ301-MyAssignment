@@ -4,27 +4,29 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
  */
 public class Enroll {
-    Student stu;
-    Group grp;
+    private ArrayList<Student> stu = new ArrayList<>();
+    private ArrayList<Group> grp = new ArrayList<>();
 
-    public Student getStu() {
+    public ArrayList<Student> getStu() {
         return stu;
     }
 
-    public void setStu(Student stu) {
+    public void setStu(ArrayList<Student> stu) {
         this.stu = stu;
     }
 
-    public Group getGrp() {
+    public ArrayList<Group> getGrp() {
         return grp;
     }
 
-    public void setGrp(Group grp) {
+    public void setGrp(ArrayList<Group> grp) {
         this.grp = grp;
     }
     

@@ -4,27 +4,29 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
  */
 public class Contract {
-    Lecturer lec;
-    L_Department ldept;
+    private ArrayList<Lecturer> lec = new ArrayList<>();
+    private ArrayList<L_Department> ldept = new ArrayList<>();
 
-    public Lecturer getLec() {
+    public ArrayList<Lecturer> getLec() {
         return lec;
     }
 
-    public void setLec(Lecturer lec) {
+    public void setLec(ArrayList<Lecturer> lec) {
         this.lec = lec;
     }
 
-    public L_Department getLdept() {
+    public ArrayList<L_Department> getLdept() {
         return ldept;
     }
 
-    public void setLdept(L_Department ldept) {
+    public void setLdept(ArrayList<L_Department> ldept) {
         this.ldept = ldept;
     }
     

@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -11,14 +13,14 @@ package model;
 public class Subject {
     String suid;
     String suname;
-    L_Department lDept;
+    private ArrayList<L_Department> ldept = new ArrayList<>();
 
-    public L_Department getlDept() {
-        return lDept;
+    public ArrayList<L_Department> getLdept() {
+        return ldept;
     }
 
-    public void setlDept(L_Department lDept) {
-        this.lDept = lDept;
+    public void setLdept(ArrayList<L_Department> lDept) {
+        this.ldept = lDept;
     }
     
     public String getSuid() {

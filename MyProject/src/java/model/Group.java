@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -11,8 +13,24 @@ package model;
 public class Group {
     int gid;
     String gname;
-    Subject sub;
-    Lecturer lec;
+    private ArrayList<Subject> sub = new ArrayList<>();
+    private ArrayList<Lecturer> lec = new ArrayList<>();
+
+    public ArrayList<Subject> getSub() {
+        return sub;
+    }
+
+    public void setSub(ArrayList<Subject> sub) {
+        this.sub = sub;
+    }
+
+    public ArrayList<Lecturer> getLec() {
+        return lec;
+    }
+
+    public void setLec(ArrayList<Lecturer> lec) {
+        this.lec = lec;
+    }
 
     public int getGid() {
         return gid;
@@ -29,21 +47,4 @@ public class Group {
     public void setGname(String gname) {
         this.gname = gname;
     }
-
-    public Subject getSub() {
-        return sub;
-    }
-
-    public void setSub(Subject sub) {
-        this.sub = sub;
-    }
-
-    public Lecturer getLec() {
-        return lec;
-    }
-
-    public void setLec(Lecturer lec) {
-        this.lec = lec;
-    }
-    
 }

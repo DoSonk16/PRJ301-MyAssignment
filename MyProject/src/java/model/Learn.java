@@ -4,27 +4,29 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
  */
 public class Learn {
-    Student stu;
-    Department dept;
+    private ArrayList<Student> stu = new ArrayList<>();
+    private ArrayList<Department> dept = new ArrayList<>();
 
-    public Student getStu() {
+    public ArrayList<Student> getStu() {
         return stu;
     }
 
-    public void setStu(Student stu) {
+    public void setStu(ArrayList<Student> stu) {
         this.stu = stu;
     }
 
-    public Department getDept() {
+    public ArrayList<Department> getDept() {
         return dept;
     }
 
-    public void setDept(Department dept) {
+    public void setDept(ArrayList<Department> dept) {
         this.dept = dept;
     }
     

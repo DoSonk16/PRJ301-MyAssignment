@@ -12,71 +12,42 @@ import java.util.ArrayList;
  * @author DELL
  */
 public class Session {
-    String sid;
-    int lid;
-    String suid;
-    Date sldate;
-    String rname;
-    private ArrayList<Student> stu = new ArrayList<>();
-    private ArrayList<Lecturer> lec = new ArrayList<>();
-    private ArrayList<Room> roo = new ArrayList<>();
-    private ArrayList<Subject> sub = new ArrayList<>();
+    int sessionId;
+    String sessionName;
+    private ArrayList<Group> grp = new ArrayList<>();
     private ArrayList<Slot> slo = new ArrayList<>();
+    private ArrayList<Room> roo = new ArrayList<>();
 
-    public String getSid() {
-        return sid;
+    public int getSessionId() {
+        return sessionId;
     }
 
-    public void setSid(String sid) {
-        this.sid = sid;
+    public void setSessionId(int sessionId) {
+        this.sessionId = sessionId;
     }
 
-    public int getLid() {
-        return lid;
+    public String getSessionName() {
+        return sessionName;
     }
 
-    public void setLid(int lid) {
-        this.lid = lid;
+    public void setSessionName(String sessionName) {
+        this.sessionName = sessionName;
     }
 
-    public String getSuid() {
-        return suid;
+    public ArrayList<Group> getGrp() {
+        return grp;
     }
 
-    public void setSuid(String suid) {
-        this.suid = suid;
+    public void setGrp(ArrayList<Group> grp) {
+        this.grp = grp;
     }
 
-    public Date getSldate() {
-        return sldate;
+    public ArrayList<Slot> getSlo() {
+        return slo;
     }
 
-    public void setSldate(Date sldate) {
-        this.sldate = sldate;
-    }
-
-    public String getRname() {
-        return rname;
-    }
-
-    public void setRname(String rname) {
-        this.rname = rname;
-    }
-
-    public ArrayList<Student> getStu() {
-        return stu;
-    }
-
-    public void setStu(ArrayList<Student> stu) {
-        this.stu = stu;
-    }
-
-    public ArrayList<Lecturer> getLec() {
-        return lec;
-    }
-
-    public void setLec(ArrayList<Lecturer> lec) {
-        this.lec = lec;
+    public void setSlo(ArrayList<Slot> slo) {
+        this.slo = slo;
     }
 
     public ArrayList<Room> getRoo() {
@@ -87,20 +58,4 @@ public class Session {
         this.roo = roo;
     }
 
-    public ArrayList<Subject> getSub() {
-        return sub;
-    }
-
-    public void setSub(ArrayList<Subject> sub) {
-        this.sub = sub;
-    }
-
-    public ArrayList<Slot> getSlo() {
-        return slo;
-    }
-
-    public void setSlo(ArrayList<Slot> slo) {
-        this.slo = slo;
-    }
-    
 }
