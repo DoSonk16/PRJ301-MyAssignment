@@ -16,9 +16,10 @@ import java.util.logging.Logger;
  * @author Ngo Tung Son
  */
 public abstract class DBContext<T> {
+
     protected Connection connection;
-    public DBContext()
-    {
+
+    public DBContext() {
         try {
             String user = "sondh";
             String pass = "12345";
@@ -29,11 +30,18 @@ public abstract class DBContext<T> {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public abstract ArrayList<T> list();
+
     public abstract T get(int id);
+
     public abstract void insert(T model);
+
     public abstract void update(T model);
+
     public abstract void delete(T model);
     
+    
+
 }
+

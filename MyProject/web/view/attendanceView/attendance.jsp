@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="/attendance" method="POST">
+        <form action="attendance" method="POST">
             Student ID: <select name="sid"> 
                 <c:forEach items="${requestScope.stud}" var="s">
                     <option 

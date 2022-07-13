@@ -49,8 +49,9 @@ public class AttendanceController extends HttpServlet {
             throws ServletException, IOException {
         StudentDBContext db = new StudentDBContext();
         ArrayList<Student> stud = db.list();
-        request.setAttribute("stud", stud);
-        request.getRequestDispatcher("view/attendanceView/attendance.jsp").forward(request, response);
+        response.getWriter().print(stud);
+//        request.setAttribute("stud", stud);
+//        request.getRequestDispatcher("/view/attendanceView/attendance.jsp").forward(request, response);
     }
 
     /**
