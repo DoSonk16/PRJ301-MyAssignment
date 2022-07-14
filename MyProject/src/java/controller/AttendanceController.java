@@ -68,13 +68,13 @@ public class AttendanceController extends HttpServlet {
         String sid = request.getParameter("sid");
         AttendanceDBContext dbAtt = new AttendanceDBContext();
         ArrayList<Attendance> atts = dbAtt.search(sid);
-        response.getWriter().println(atts);
-//        StudentDBContext db = new StudentDBContext();
-//        ArrayList<Student> stud = db.list();
-//        request.setAttribute("sid", sid);
-//        request.setAttribute("atts", atts);
-//        request.setAttribute("stud", stud);
-//        request.getRequestDispatcher("/view/attendanceView/attendance.jsp").forward(request, response);
+//        response.getWriter().println(atts);
+        StudentDBContext db = new StudentDBContext();
+        ArrayList<Student> stud = db.list();
+        request.setAttribute("sid", sid);
+        request.setAttribute("atts", atts);
+        request.setAttribute("stud", stud);
+        request.getRequestDispatcher("/view/attendanceView/attendance.jsp").forward(request, response);
     }
 
     /**

@@ -12,6 +12,15 @@ import java.util.ArrayList;
  * @author DELL
  */
 public class Attendance {
+    String sid;
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
     private ArrayList<Student> stu = new ArrayList<>();
     private ArrayList<Session> ses = new ArrayList<>();
     boolean status;

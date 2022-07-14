@@ -39,12 +39,12 @@
                 </tr>
                 <c:forEach items="${requestScope.atts}" var="a">
                     <tr>
-                        <td>${a.slo.slname}</td>
-                        <td>${a.roo.rname}</td>
-                        <td>${a.lec.lname}</td>
-                        <td>${a.grp.gname}</td>
-                        <td>${a.att.status}</td>
-                        <td>${a.att.editdate}</td>
+                        <td>${a.slname}</td>
+                        <td>${a.rname}</td>
+                        <td>${a.lname}</td>
+                        <td>${a.gname}</td>
+                        <td>${a.status}</td>
+                        <td>${a.editdate}</td>
                     </tr>  
                 </c:forEach>
             </table>
