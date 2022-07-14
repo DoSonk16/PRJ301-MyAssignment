@@ -20,7 +20,7 @@
                         <c:if test="${s.sid eq requestScope.sid}">
                             selected="selected"
                         </c:if>
-                        value="${s.sid}">${s.sname}</option>
+                        value="${s.sid}">${s.sid}</option>
                 </c:forEach>
             </select>
             <input type="submit" value="Show"/>
@@ -39,12 +39,12 @@
                 </tr>
                 <c:forEach items="${requestScope.atts}" var="a">
                     <tr>
-                        <td>${slo.slname}</td>
-                        <td>${roo.rname}</td>
-                        <td>${lec.lname}</td>
-                        <td>${grp.gname}</td>
-                        <td>${att.status}</td>
-                        <td>${att.editdate}</td>
+                        <td>${a.slo.slname}</td>
+                        <td>${a.roo.rname}</td>
+                        <td>${a.lec.lname}</td>
+                        <td>${a.grp.gname}</td>
+                        <td>${a.att.status}</td>
+                        <td>${a.att.editdate}</td>
                     </tr>  
                 </c:forEach>
             </table>

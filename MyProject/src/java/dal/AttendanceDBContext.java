@@ -32,7 +32,7 @@ public class AttendanceDBContext extends DBContext<Attendance> {
                     + "INNER JOIN [Group] grp ON grp.gid = ses.gid\n"
                     + "INNER JOIN Lecturer lec ON lec.lid = grp.lid\n"
                     + "INNER JOIN Student stu ON att.sid = stu.sid\n"
-                    + "where stu.sid = ?";
+                    + "where stu.sid like '%?%'";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, sid);
             ResultSet rs = stm.executeQuery();

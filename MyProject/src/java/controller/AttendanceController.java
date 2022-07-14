@@ -49,9 +49,9 @@ public class AttendanceController extends HttpServlet {
             throws ServletException, IOException {
         StudentDBContext db = new StudentDBContext();
         ArrayList<Student> stud = db.list();
-        response.getWriter().print(stud);
-//        request.setAttribute("stud", stud);
-//        request.getRequestDispatcher("/view/attendanceView/attendance.jsp").forward(request, response);
+//        response.getWriter().print(stud);
+        request.setAttribute("stud", stud);
+        request.getRequestDispatcher("/view/attendanceView/attendance.jsp").forward(request, response);
     }
 
     /**
@@ -65,7 +65,16 @@ public class AttendanceController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String sid = request.getParameter("sid");
+        AttendanceDBContext dbAtt = new AttendanceDBContext();
+        ArrayList<Attendance> atts = dbAtt.search(sid);
+        response.getWriter().println(atts);
+//        StudentDBContext db = new StudentDBContext();
+//        ArrayList<Student> stud = db.list();
+//        request.setAttribute("sid", sid);
+//        request.setAttribute("atts", atts);
+//        request.setAttribute("stud", stud);
+//        request.getRequestDispatcher("/view/attendanceView/attendance.jsp").forward(request, response);
     }
 
     /**
