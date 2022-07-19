@@ -39,10 +39,10 @@
                 </tr>
                 <c:forEach items="${requestScope.atts}" var="a">
                     <tr>
-                        <td>${a.slname}</td>
-                        <td>${a.rname}</td>
-                        <td>${a.lname}</td>
-                        <td>${a.gname}</td>
+                        <td>${a.slo.slname}</td>
+                        <td>${a.roo.rname}</td>
+                        <td>${a.lec.lname}</td>
+                        <td>${a.grp.gname}</td>
                         <td>${a.status}</td>
                         <td>${a.editdate}</td>
                     </tr>  

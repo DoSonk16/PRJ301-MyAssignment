@@ -15,6 +15,16 @@ public class Group {
     String gname;
     private ArrayList<Subject> sub = new ArrayList<>();
     private ArrayList<Lecturer> lec = new ArrayList<>();
+    private ArrayList<Student> stu = new ArrayList<>();
+
+    public ArrayList<Student> getStu() {
+        return stu;
+    }
+
+    public void setStu(ArrayList<Student> stu) {
+        this.stu = stu;
+    }
+    
 
     public ArrayList<Subject> getSub() {
         return sub;

@@ -15,6 +15,15 @@ public class Slot {
     String slname;
     Date fromdate;
     Date todate;
+    Session ses;
+
+    public Session getSes() {
+        return ses;
+    }
+
+    public void setSes(Session ses) {
+        this.ses = ses;
+    }
 
     public int getSlid() {
         return slid;

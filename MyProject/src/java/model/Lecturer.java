@@ -14,6 +14,16 @@ public class Lecturer {
     boolean gender;
     String lemail;
     String lpassword;
+    Group grp;
+
+    public Group getGrp() {
+        return grp;
+    }
+
+    public void setGrp(Group grp) {
+        this.grp = grp;
+    }
+    
 
     public boolean isGender() {
         return gender;

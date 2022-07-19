@@ -11,7 +11,16 @@ package model;
 public class Room {
     String rname;
     int rid;
+    Session ses;
 
+    public Session getSes() {
+        return ses;
+    }
+
+    public void setSes(Session ses) {
+        this.ses = ses;
+    }
+    
     public int getRid() {
         return rid;
     }

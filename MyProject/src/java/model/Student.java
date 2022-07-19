@@ -17,6 +17,25 @@ public class Student {
     Date dob;
     String semail;
     String spassword;
+    Group grp;
+    Attendance att;
+
+    public Attendance getAtt() {
+        return att;
+    }
+
+    public void setAtt(Attendance att) {
+        this.att = att;
+    }
+    
+
+    public Group getGrp() {
+        return grp;
+    }
+
+    public void setGrp(Group grp) {
+        this.grp = grp;
+    }
 
     public String getSemail() {
         return semail;

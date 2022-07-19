@@ -11,8 +11,10 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Attendance;
+import model.Group;
 import model.Lecturer;
 import model.Room;
+import model.Session;
 import model.Slot;
 import model.Student;
 
@@ -25,7 +27,7 @@ public class AttendanceDBContext extends DBContext<Attendance> {
     public ArrayList<Attendance> search(String sid) {
         ArrayList<Attendance> atts = new ArrayList<>();
         try {
-            String sql = "select att.sid, att.status, att.editdate, stu.sname, roo.rname, slo.slname, lec.lname from Attendance att\n"
+            String sql = "select att.status, att.editdate, grp.gname, roo.rname, slo.slname, lec.lname from Attendance att\n"
                     + "INNER JOIN Session ses ON att.sessionId = ses.sessionId\n"
                     + "INNER JOIN Room roo ON roo.rid = ses.rid\n"
                     + "INNER JOIN Slot slo ON slo.slid = ses.slid\n"
@@ -38,17 +40,20 @@ public class AttendanceDBContext extends DBContext<Attendance> {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Attendance att = new Attendance();
-                att.setSid(rs.getString("sid"));
                 att.setStatus(rs.getBoolean("status"));
                 att.setEditdate(rs.getDate("editdate"));
-                Student stu = new Student();
-                stu.setSname(rs.getString("sname"));
+                Group grp = new Group();
+                grp.setGname(rs.getString("gname"));
+                Session ses = new Session();
                 Room roo = new Room();
                 roo.setRname(rs.getString("rname"));
                 Slot slo = new Slot();
                 slo.setSlname(rs.getString("slname"));
                 Lecturer lec = new Lecturer();
                 lec.setLname(rs.getString("lname"));
+                roo.setSes(ses);
+                slo.setSes(ses);
+                lec.setGrp(grp);
                 atts.add(att);
             }
         } catch (SQLException ex) {
